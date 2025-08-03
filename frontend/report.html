@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Report Lost/Found Item</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h2>Report Lost or Found Item</h2>
+    <form id="itemForm">
+        <input type="text" id="title" placeholder="item title" required><br><br>
+        <textarea id="description" placeholder="Describe the item" required></textarea><br><br>
+        <input type="text" id="location" placeholder="Last seen/found location" required><br><br>
+        <select id ="status" required>
+            <option value="">Select status</option>
+            <option value="lost">Lost</option>
+            <option value="found">Found</option>
+        </select><br><br>
+        <input type="number" id="user_id" placeholder="User ID" required><br><br>
+        <button type ="submit">Submit</button>
+    </form>
+
+    <script>
+        const form = document.getElementById('itemForm');
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            const item = {
+                title: document.getElementById('title').value,
+                description: document.getElementById('description').value,
+                location: document.getElementById('location').value,
+                status: document.getElementById('status').value,
+                user_id: document.getElementById('user_id').value
+            }
+
+            const res = await fetch('http://localhost:8020/api/items', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(item)
+            });
+
+            const data = await res.json();
+            alert(data.message || 'Submitted successfully!');
+            form.reset(); // Reset the form after submission
+        })
+    </script>
+</body>
+</html>
