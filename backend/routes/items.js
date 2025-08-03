@@ -10,4 +10,16 @@ router.get('/', (req, res) => {
     });
 });
 
+router.post('/', (req, res) => {
+    const {title, description, location, status, user_id } = req.body;
+    const sql = `
+        INSERT INTO items (title, description, location, status, reported_date, user_id)
+        VALUES (?, ?, ?, ?, CURDATE(), ?)
+    `;
+    db.query(sql, [title, description, location, status, user_id], (err, result) => {
+        if (err) return res.status(500).json({ error: err });
+        res.json({ message: 'Item reported successfully'});
+    });
+});
+
 module.exports = router;
