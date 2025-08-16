@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Dashboard - Lost & Found Portal</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f2f2f2;
+      margin: 0;
+      padding: 0;
+    }
+
+    .dashboard-container {
+      max-width: 600px;
+      margin: 50px auto;
+      padding: 30px;
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .user-info {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .actions {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    .actions a {
+      text-decoration: none;
+      color: white;
+      background: #007bff;
+      padding: 12px;
+      text-align: center;
+      border-radius: 5px;
+      font-weight: bold;
+    }
+
+    .actions a:hover {
+      background: #0056b3;
+    }
+  </style>
+</head>
+<body>
+  <div class="dashboard-container">
+    <h2>Welcome to Lost & Found Portal</h2>
+    <div class="user-info">
+      <p><strong>Name:</strong> <span id="userFullName"></span></p>
+      <p><strong>Index Number:</strong> <span id="userIndex"></span></p>
+    </div>
+    <div class="actions">
+      <a href="report-item.html">Report Lost Item</a>
+      <a href="view-items.html">View Reported Items</a>
+      <a href="#" onclick="logout()">Logout</a>
+    </div>
+  </div>
+
+  <script>
+    // Load user data from localStorage
+    const user = JSON.parse(localStorage.getItem('user'));
+
+    if (!user) {
+      alert('You are not logged in.');
+      window.location.href = 'register.html';
+    } else {
+      document.getElementById('userFullName').textContent = user.full_name;
+      document.getElementById('userIndex').textContent = user.index_number;
+    }
+
+    // Logout function
+
+    function logout() {
+      localStorage.removeItem('user');
+      window.location.href = 'register.html';
+    }
+  </script>
+</body>
+</html>
