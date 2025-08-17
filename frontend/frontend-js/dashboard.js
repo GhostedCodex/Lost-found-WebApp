@@ -9,8 +9,15 @@ if (!user) {
   document.getElementById("userIndex").textContent = user.index_number;
 }
 
-// Logout function
+// Logout function (navbar)
 document.getElementById("logoutBtn").addEventListener("click", () => {
+  localStorage.removeItem("user");
+  window.location.href = "register.html";
+});
+
+// Logout function (footer)
+document.getElementById("logoutFooter").addEventListener("click", (e) => {
+  e.preventDefault();
   localStorage.removeItem("user");
   window.location.href = "register.html";
 });

@@ -2,23 +2,83 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Dashboard - Lost & Found Portal</title>
+  <title>Lost & Found Dashboard</title>
   <link rel="stylesheet" href="../frontend-css/dashboard.css">
 </head>
 <body>
-  <div class="dashboard-container">
-    <h2>Welcome to Lost & Found Portal</h2>
-    <div class="user-info">
-      <p><strong>Name:</strong> <span id="userFullName"></span></p>
-      <p><strong>Index Number:</strong> <span id="userIndex"></span></p>
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="logo">
+      <!-- Optional logo image -->
+      <!-- <img src="../assets/logo.png" alt="UENR Logo"> -->
+      <span>UENR Lost & Found</span>
     </div>
-    <div class="actions">
-      <a href="report.html">Report Lost Item</a>
-      <a href="view-items.html">View Reported Items</a>
-      <a href="view-claimed-items.html">View Claimed Items</a>
-      <a href="#" id="logoutBtn">Logout</a>
+    <ul class="nav-links">
+      <li><a href="dashboard.html">Home</a></li>
+      <li><a href="view-items.html">Found Items</a></li>
+      <li><a href="report.html">Lost Items</a></li>
+      <li><a href="view-claimed-items.html">Claimed Items</a></li>
+      <li><a href="#about">About Us</a></li>
+      <li><button id="logoutBtn" class="logout-btn">Logout</button></li>
+    </ul>
+  </nav>
+
+  <!-- Hero Section -->
+  <header class="hero">
+    <h1>Welcome to UENR Lost & Found Portal</h1>
+    <p>Your trusted platform for recovering lost belongings on campus.</p>
+    <p><strong id="userFullName"></strong> (<span id="userIndex"></span>)</p>
+  </header>
+
+  <!-- Main Section -->
+  <main class="main-content">
+    <section class="about">
+      <h2>About UENR Lost & Found</h2>
+      <p>
+        At the University of Energy and Natural Resources, we value the security of our community.
+        This platform ensures that lost belongings are reported, stored, and claimed responsibly.
+        Use it to report, view, and recover items. (Replace this text with your final copy.)
+      </p>
+
+      <div class="dashboard-buttons">
+        <a href="report.html" class="btn">Report Missing Item</a>
+        <a href="view-items.html" class="btn">View Found Items</a>
+        <a href="view-claimed-items.html" class="btn">View Claimed Items</a>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer" id="about">
+    <div class="footer-content">
+      <div class="footer-logo">
+        <!-- Optional logo image -->
+        <!-- <img src="../assets/logo.png" alt="UENR Logo"> -->
+        <h3>UENR Lost & Found</h3>
+      </div>
+
+      <div class="footer-links">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="dashboard.html">Home</a></li>
+          <li><a href="#about">About Us</a></li>
+          <li><a href="#" id="logoutFooter">Logout</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-contact">
+        <h4>Contact</h4>
+        <p>Email: lostfound@uenr.edu.gh</p>
+        <p>University Email: info@uenr.edu.gh</p>
+        <p>Phone: +233 20 123 4567</p>
+        <p>Address: Sunyani, Ghana</p>
+      </div>
     </div>
-  </div>
+
+    <div class="footer-bottom">
+      <p>&copy; 2025 UENR Lost & Found | All Rights Reserved</p>
+    </div>
+  </footer>
 
   <script src="../frontend-js/dashboard.js"></script>
 </body>
