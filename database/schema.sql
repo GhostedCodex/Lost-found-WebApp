@@ -14,7 +14,7 @@ CREATE TABLE users (
 
 DROP TABLE IF exists items;
 
-CREATE TABLE items (
+CREATE TABLE found_items (
   id INT AUTO_INCREMENT PRIMARY KEY,
   item_name VARCHAR(255) NOT NULL,
   description TEXT,
@@ -41,5 +41,17 @@ CREATE TABLE claimed_items (
   level VARCHAR(20),
   course_of_study VARCHAR(100),
   created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-  FOREIGN KEY (item_id) REFERENCES items(id)
+  FOREIGN KEY (item_id) REFERENCES found_items(id)
+);
+
+CREATE TABLE lost_items (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  item_name VARCHAR(255) NOT NULL,
+  description TEXT,
+  lost_location VARCHAR(255),
+  lost_date DATE,
+  reporter_name VARCHAR(255) NOT NULL,
+  reporter_index VARCHAR(20) NOT NULL,
+  reporter_contact VARCHAR(50),
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );

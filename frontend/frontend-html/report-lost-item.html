@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Report Lost Item</title>
+  <link rel="stylesheet" href="../frontend-css/report-lost-item.css">
+</head>
+<body>
+  <div class="container">
+    <h2>Report Lost Item</h2>
+    <form id="lostItemForm">
+      <label>Item Name:</label>
+      <input type="text" name="item_name" required><br>
+
+      <label>Description:</label>
+      <textarea name="description" required></textarea><br>
+
+      <label>Lost Location:</label>
+      <input type="text" name="lost_location"><br>
+
+      <label>Lost Date:</label>
+      <input type="date" name="lost_date"><br>
+
+      <label>Your Full Name:</label>
+      <input type="text" name="reporter_name" required><br>
+
+      <label>Index Number:</label>
+      <input type="text" name="reporter_index" required><br>
+
+      <label>Contact Info:</label>
+      <input type="text" name="reporter_contact"><br>
+
+      <button type="submit">Submit</button>
+    </form>
+  </div>
+
+  <script src="../frontend-js/report-lost-item.js"></script>
+</body>
+</html>

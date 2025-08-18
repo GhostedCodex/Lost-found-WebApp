@@ -26,7 +26,7 @@ router.post("/report", upload.single("item_image"), (req, res) => {
   }
 
   db.query(
-    "INSERT INTO items (item_name, description, location_found, date_found, reporter_name, reporter_index, item_image) VALUES (?, ?, ?, ?, ?, ?, ?)",
+    "INSERT INTO found_items (item_name, description, location_found, date_found, reporter_name, reporter_index, item_image) VALUES (?, ?, ?, ?, ?, ?, ?)",
     [item_name, description, location_found, date_found, reporter_name, reporter_index, item_image],
     (err, result) => {
       if (err) {
@@ -59,7 +59,7 @@ router.post("/claim/:id", (req, res) => {
       }
 
       // Mark item as claimed
-      db.query("UPDATE items SET claimed = true WHERE id = ?", [itemId], (err2) => {
+      db.query("UPDATE found_items SET claimed = true WHERE id = ?", [itemId], (err2) => {
         if (err2) {
           console.error(err2);
           return res.status(500).json({ success: false, message: "Server error" });
@@ -73,7 +73,7 @@ router.post("/claim/:id", (req, res) => {
 
 //  Fetch all reported items
 router.get("/", (req, res) => {
-  db.query("SELECT * FROM items ORDER BY created_at DESC", (err, rows) => {
+  db.query("SELECT * FROM found_items ORDER BY created_at DESC", (err, rows) => {
     if (err) {
       console.error(err);
       return res.status(500).json({ success: false, message: "Server error" });
@@ -85,7 +85,7 @@ router.get("/", (req, res) => {
 //  Fetch claimed items
 router.get("/claimed", (req, res) => {
   db.query(
-    "SELECT items.item_name, items.description, c.* FROM claimed_items c JOIN items ON c.item_id = items.id ORDER BY c.created_at DESC",
+    "SELECT found_items.item_name, items.description, c.* FROM claimed_items c JOIN items ON c.item_id = items.id ORDER BY c.created_at DESC",
     (err, rows) => {
       if (err) {
         console.error(err);
