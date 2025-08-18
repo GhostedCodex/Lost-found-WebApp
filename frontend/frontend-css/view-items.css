@@ -1,60 +1,180 @@
+/* --- CSS Variables for UENR Theming --- */
+:root {
+    --primary-color: #006400; /* UENR's primary Green */
+    --primary-hover: #004d00;
+    --accent-color: #FFD700;  /* UENR's accent Gold/Yellow */
+    --secondary-color: #f4f7fc;
+    --text-dark: #333;
+    --text-light: #666;
+    --border-color: #e0e0e0;
+    --card-bg: #ffffff;
+    --success-bg: #e4f8e4;
+    --success-text: #2e7d32;
+    --error-bg: #fde2e2;
+    --error-text: #c62828;
+}
+
+/* --- General Body and Layout Styling --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 20px;
-  background: #f4f6f9;
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--secondary-color);
+    color: var(--text-dark);
 }
 
 .container {
-  max-width: 1100px;
-  margin: auto;
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 20px;
 }
 
-h2 {
-  text-align: center;
-  margin-bottom: 20px;
+.page-title {
+    text-align: center;
+    font-weight: 700;
+    color: var(--primary-color);
+    margin-bottom: 30px;
 }
 
+/* --- Main Header / Navigation --- */
+.main-header {
+    background-color: var(--card-bg);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.07);
+    padding: 15px 30px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.header-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.main-header .logo-container img {
+    max-width: 140px;
+    height: auto;
+}
+
+.main-nav a {
+    color: var(--text-light);
+    text-decoration: none;
+    font-weight: 500;
+    margin-left: 25px;
+    transition: color 0.3s ease;
+}
+
+.main-nav a:hover {
+    color: var(--primary-color);
+}
+
+.main-nav a.active {
+    color: var(--primary-color);
+    font-weight: 600;
+    border-bottom: 2px solid var(--accent-color);
+    padding-bottom: 5px;
+}
+
+
+/* --- Items Grid and Cards --- */
 .grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-  gap: 15px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 25px;
 }
 
 .card {
-  background: white;
-  border-radius: 10px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
+    background: var(--card-bg);
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.12);
 }
 
 .card img {
-  width: 100%;
-  height: 200px;
-  object-fit: cover;
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    border-bottom: 1px solid var(--border-color);
 }
 
 .card-content {
-  padding: 15px;
-  flex-grow: 1;
+    padding: 20px;
+    flex-grow: 1; /* Allows content to fill space */
 }
 
 .card h3 {
-  margin: 0 0 10px;
+    margin: 0 0 12px;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--text-dark);
 }
 
-button {
-  background: #007bff;
-  color: white;
-  border: none;
-  padding: 10px;
-  cursor: pointer;
-  width: 100%;
-  border-radius: 0 0 10px 10px;
+.card p {
+    margin: 0 0 8px;
+    color: var(--text-light);
+    font-size: 0.9rem;
 }
 
-button:hover {
-  background: #0056b3;
+.card p strong {
+    color: var(--text-dark);
+    font-weight: 500;
+}
+
+.card button {
+    background: var(--primary-color);
+    color: white;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: 1rem;
+    border: none;
+    padding: 14px;
+    cursor: pointer;
+    width: 100%;
+    transition: background-color 0.3s ease;
+}
+
+.card button:hover {
+    background: var(--primary-hover);
+}
+
+/* --- Loading Spinner --- */
+.loader {
+    border: 5px solid #f3f3f3; /* Light grey */
+    border-top: 5px solid var(--primary-color); /* Green */
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    animation: spin 1s linear infinite;
+    margin: 50px auto; /* Center the loader */
+    grid-column: 1 / -1; /* Span all columns */
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* --- Error Message Styling --- */
+.error-message {
+    text-align: center;
+    color: var(--error-text);
+    background-color: var(--error-bg);
+    padding: 20px;
+    border-radius: 8px;
+    grid-column: 1 / -1; /* Span all columns */
 }

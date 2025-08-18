@@ -1,57 +1,73 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Report Item</title>
-  <link rel="stylesheet" href="../frontend-css/report-found-item.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Report a Found Item - UENR Portal</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../frontend-css/report-found-item.css">
 </head>
 <body>
-  <div class="container">
-    <h2>Report a Lost & Found Item</h2>
+    <header class="main-header">
+        <div class="header-container">
+            <div class="logo-container">
+                <img src="../Images/Uern_logo.png" alt="UENR School Logo">
+            </div>
+            <nav class="main-nav">
+                <a href="view-items.html">View Found Items</a>
+                <a href="view-lost-items.html">View Lost Items</a>     
+                <a href="report-found-item.html" class="active">Report Found Item</a>
+                <a href="report-lost-item.html">Report Lost Item</a>
+                <a href="view-claimed-items.html">Claimed Items</a>
+                <a href="index.html">Leave</a>
+            </nav>
+        </div>
+    </header>
 
-    <form id="reportForm" enctype="multipart/form-data">
-      
-      <div class="form-group">
-        <label for="item_name">Item Name:</label>
-        <input type="text" id="item_name" name="item_name" required>
-      </div>
+    <main>
+        <div class="form-container">
+            <h2>Report a Found Item</h2>
+            <p class="subtitle">Help return lost items to their rightful owners.</p>
 
-      <div class="form-group">
-        <label for="description">Description:</label>
-        <textarea id="description" name="description"></textarea>
-      </div>
+            <form id="reportForm" enctype="multipart/form-data">
+                <div class="form-group">
+                    <label for="item_name">Item Name:</label>
+                    <input type="text" id="item_name" name="item_name" placeholder="e.g., iPhone 13, Black Backpack" required>
+                </div>
+                <div class="form-group">
+                    <label for="description">Description:</label>
+                    <textarea id="description" name="description" placeholder="Add details like color, brand, or identifying marks"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="location_found">Location Found:</label>
+                    <input type="text" id="location_found" name="location_found" placeholder="e.g., Library, Lecture Hall 5">
+                </div>
+                <div class="form-group">
+                    <label for="date_found">Date Found:</label>
+                    <input type="date" id="date_found" name="date_found">
+                </div>
+                <div class="form-group">
+                    <label for="reporter_name">Your Name:</label>
+                    <input type="text" id="reporter_name" name="reporter_name" required>
+                </div>
+                <div class="form-group">
+                    <label for="reporter_index">Your Index Number:</label>
+                    <input type="text" id="reporter_index" name="reporter_index" required>
+                </div>
+                <div class="form-group">
+                    <label for="item_image">Upload Item Picture:</label>
+                    <input type="file" id="item_image" name="item_image" accept="image/*">
+                </div>
+                <button type="submit">Submit Report</button>
+            </form>
 
-      <div class="form-group">
-        <label for="location_found">Location Found:</label>
-        <input type="text" id="location_found" name="location_found">
-      </div>
+            <div id="msg" class="message"></div>
+        </div>
+    </main>
 
-      <div class="form-group">
-        <label for="date_found">Date Found:</label>
-        <input type="date" id="date_found" name="date_found">
-      </div>
+    <script src="../frontend-js/report-found-item.js"></script>
 
-      <div class="form-group">
-        <label for="reporter_name">Your Name:</label>
-        <input type="text" id="reporter_name" name="reporter_name" required>
-      </div>
-
-      <div class="form-group">
-        <label for="reporter_index">Your Index Number:</label>
-        <input type="text" id="reporter_index" name="reporter_index" required>
-      </div>
-
-      <div class="form-group">
-        <label for="item_image">Upload Item Picture:</label>
-        <input type="file" id="item_image" name="item_image" accept="image/*">
-      </div>
-
-      <button type="submit">Report Item</button>
-    </form>
-
-    <p id="msg"></p>
-  </div>
-
-  <script src="../frontend-js/report-found-item.js"></script>
 </body>
 </html>

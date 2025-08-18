@@ -1,13 +1,11 @@
-/* --- CSS Variables for UENR Theming --- */
+/* --- CSS Variables for Easy Theming --- */
 :root {
-    --primary-color: #006400; /* UENR's primary Green */
-    --primary-hover: #004d00;
-    --accent-color: #FFD700;  /* UENR's accent Gold/Yellow */
-    --secondary-color: #f4f7fc;
+    --primary-color: #005A9C; /* A professional blue */
+    --primary-hover: #004a80;
+    --secondary-color: #f4f7fc; /* A very light grey/blue for backgrounds */
     --text-dark: #333;
-    --text-light: #666;
-    --border-color: #e0e0e0;
-    --card-bg: #ffffff;
+    --text-light: #777;
+    --border-color: #ddd;
     --success-bg: #e4f8e4;
     --success-text: #2e7d32;
     --error-bg: #fde2e2;
@@ -24,88 +22,71 @@
 body {
     font-family: 'Poppins', sans-serif;
     background-color: var(--secondary-color);
-    color: var(--text-dark);
-    line-height: 1.6;
-}
-
-.container {
-    max-width: 1200px;
-    margin: 20px auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
     padding: 20px;
 }
 
-.page-title {
-    text-align: center;
-    font-weight: 700;
-    color: var(--primary-color);
-    margin-bottom: 30px;
-}
-
-/* --- Main Header / Navigation --- */
-.main-header {
-    background-color: var(--card-bg);
-    box-shadow: 0 2px 10px rgba(0,0,0,0.07);
-    padding: 15px 30px;
-    position: sticky;
-    top: 0;
-    z-index: 100;
-}
-
-.header-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.main-header .logo-container img {
-    max-width: 140px;
-    height: auto;
-}
-
-.main-nav a {
-    color: var(--text-light);
-    text-decoration: none;
-    font-weight: 500;
-    margin-left: 25px;
-    transition: color 0.3s ease;
-}
-
-.main-nav a:hover {
-    color: var(--primary-color);
-}
-
-.main-nav a.active {
-    color: var(--primary-color);
-    font-weight: 600;
-    border-bottom: 2px solid var(--accent-color);
-    padding-bottom: 5px;
-}
-
-/* --- Form Container (for Login, Register, Report pages) --- */
+/* --- Form Container --- */
 .form-container {
     background: #fff;
     padding: 40px;
     border-radius: 12px;
     box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
-    max-width: 500px;
+    max-width: 450px;
     width: 100%;
-    margin: 40px auto;
+    transition: all 0.3s ease;
 }
 
-.form-container h2 {
+.logo-container {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.logo-container img {
+    max-width: 150px;
+    height: auto;
+}
+
+h2 {
     text-align: center;
     color: var(--text-dark);
     font-weight: 600;
     margin-bottom: 5px;
 }
 
-.form-container .subtitle {
+.subtitle {
     text-align: center;
     color: var(--text-light);
     margin-bottom: 30px;
     font-size: 0.95rem;
+}
+
+/* --- Tab Styling --- */
+.tabs {
+    display: flex;
+    background-color: var(--secondary-color);
+    border-radius: 8px;
+    margin-bottom: 25px;
+    overflow: hidden;
+}
+
+.tab-switch {
+    flex: 1;
+    padding: 12px;
+    text-align: center;
+    cursor: pointer;
+    font-weight: 500;
+    color: var(--text-light);
+    transition: all 0.3s ease;
+}
+
+.tab-switch.active {
+    background-color: var(--primary-color);
+    color: #fff;
+    border-radius: 8px;
 }
 
 /* --- Form Elements --- */
@@ -121,7 +102,7 @@ label {
     color: var(--text-dark);
 }
 
-input, textarea {
+input {
     width: 100%;
     padding: 12px 15px;
     border: 1px solid var(--border-color);
@@ -131,21 +112,10 @@ input, textarea {
     transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
-input:focus, textarea:focus {
+input:focus {
     outline: none;
     border-color: var(--primary-color);
-    box-shadow: 0 0 0 3px rgba(0, 100, 0, 0.15);
-}
-
-textarea {
-    resize: vertical;
-    min-height: 100px;
-}
-
-input[type="file"] {
-    padding: 10px;
-    background-color: var(--secondary-color);
-    cursor: pointer;
+    box-shadow: 0 0 0 3px rgba(0, 90, 156, 0.15);
 }
 
 button {
@@ -160,14 +130,17 @@ button {
     font-size: 1rem;
     font-weight: 600;
     transition: background-color 0.3s ease;
-    margin-top: 10px;
 }
 
 button:hover {
     background: var(--primary-hover);
 }
 
-/* --- Message Boxes --- */
+/* --- Utility and Message Classes --- */
+.hidden {
+    display: none;
+}
+
 .message {
     margin-top: 15px;
     padding: 12px;
@@ -175,17 +148,14 @@ button:hover {
     text-align: center;
     font-weight: 500;
     font-size: 0.9rem;
-    display: none;
 }
 
 .error {
-    display: block;
     color: var(--error-text);
     background-color: var(--error-bg);
 }
 
 .success {
-    display: block;
     color: var(--success-text);
     background-color: var(--success-bg);
 }

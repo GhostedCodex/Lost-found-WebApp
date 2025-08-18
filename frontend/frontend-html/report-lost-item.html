@@ -1,39 +1,81 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Report Lost Item</title>
-  <link rel="stylesheet" href="../frontend-css/report-lost-item.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Report a Lost Item - UENR Portal</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../frontend-css/report-lost-item.css">
 </head>
 <body>
-  <div class="container">
-    <h2>Report Lost Item</h2>
-    <form id="lostItemForm">
-      <label>Item Name:</label>
-      <input type="text" name="item_name" required><br>
 
-      <label>Description:</label>
-      <textarea name="description" required></textarea><br>
+    <header class="main-header">
+        <div class="header-container">
+            <div class="logo-container">
+                <img src="../Images/Uern_logo.png" alt="UERN School Logo">
+            </div>
+            <nav class="main-nav">
+                <a href="view-items.html">View Found Items</a>
+                <a href="view-lost-items.html">View Lost Items</a>     
+                <a href="report-found-item.html">Report Found Item</a>
+                <a href="report-lost-item.html" class="active">Report Lost Item</a>
+                <a href="view-claimed-items.html">Claimed Items</a>
+                <a href="index.html">Leave</a>
+            </nav>
+        </div>
+    </header>
 
-      <label>Lost Location:</label>
-      <input type="text" name="lost_location"><br>
+    <main>
+        <div class="form-container">
+            <h2>Report a Lost Item</h2>
+            <p class="subtitle">Enter the details of the item you have lost.</p>
 
-      <label>Lost Date:</label>
-      <input type="date" name="lost_date"><br>
+            <form id="lostItemForm">
+                <div class="form-group">
+                    <label for="item_name">Item Name:</label>
+                    <input type="text" id="item_name" name="item_name" placeholder="e.g., HP Laptop, Student ID Card" required>
+                </div>
 
-      <label>Your Full Name:</label>
-      <input type="text" name="reporter_name" required><br>
+                <div class="form-group">
+                    <label for="description">Description:</label>
+                    <textarea id="description" name="description" placeholder="Provide specific details like color, model, etc." required></textarea>
+                </div>
 
-      <label>Index Number:</label>
-      <input type="text" name="reporter_index" required><br>
+                <div class="form-group">
+                    <label for="lost_location">Last Known Location:</label>
+                    <input type="text" id="lost_location" name="lost_location" placeholder="e.g., Auditorium, Main Library">
+                </div>
 
-      <label>Contact Info:</label>
-      <input type="text" name="reporter_contact"><br>
+                <div class="form-group">
+                    <label for="lost_date">Date Lost:</label>
+                    <input type="date" id="lost_date" name="lost_date">
+                </div>
 
-      <button type="submit">Submit</button>
-    </form>
-  </div>
+                <div class="form-group">
+                    <label for="reporter_name">Your Full Name:</label>
+                    <input type="text" id="reporter_name" name="reporter_name" required>
+                </div>
 
-  <script src="../frontend-js/report-lost-item.js"></script>
+                <div class="form-group">
+                    <label for="reporter_index">Your Index Number:</label>
+                    <input type="text" id="reporter_index" name="reporter_index" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="reporter_contact">Your Contact Info (Phone or Email):</label>
+                    <input type="text" id="reporter_contact" name="reporter_contact" placeholder="For notification if your item is found">
+                </div>
+
+                <button type="submit">Submit Lost Item Report</button>
+            </form>
+            
+            <div id="msg" class="message"></div>
+        </div>
+    </main>
+
+    <script src="../frontend-js/report-lost-item.js"></script>
+
 </body>
 </html>
